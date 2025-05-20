@@ -21,8 +21,8 @@ redeem_codes_collection = db['redeem_codes']
 attack_logs_collection = db['user_attack_logs']
 
 # Bot Configuration
-TELEGRAM_BOT_TOKEN = '8015992695:AAGwkJ0yVARaAH8KRKLOQ2I9ou5ruseCPcU'
-ADMIN_USER_ID = 7814078698 
+TELEGRAM_BOT_TOKEN = '7823827516:AAE8QEXYdrAG-zdnpH2l1nYl9DS2oftOMgA'
+ADMIN_USER_ID = 5904877352
 COOLDOWN_PERIOD = timedelta(minutes=1) 
 user_last_attack_time = {} 
 user_attack_history = {}
@@ -32,7 +32,7 @@ cooldown_dict = {}
 # Default values (in case not set by the admin)
 DEFAULT_BYTE_SIZE = 24
 DEFAULT_THREADS = 900
-DEFAULT_MAX_ATTACK_TIME = 240
+DEFAULT_MAX_ATTACK_TIME = 520
 
 # Adjust this to your local timezone, e.g., 'America/New_York' or 'Asia/Kolkata'
 LOCAL_TIMEZONE = pytz.timezone("Asia/Kolkata")
@@ -82,7 +82,7 @@ async def start(update: Update, context: CallbackContext):
 
     # Check if the user is allowed to use the bot
     if not await is_user_allowed(user_id):
-        await context.bot.send_message(chat_id=chat_id, text="*❌ You are not authorized to use this bot!*", parse_mode='Markdown')
+        await context.bot.send_message(chat_id=chat_id, text="*❌ NIKAL BHOSDIKE PEHLE JAKE KHARID!*", parse_mode='Markdown')
         return
 
     message = (
@@ -95,7 +95,7 @@ async def start(update: Update, context: CallbackContext):
 async def add_user(update: Update, context: CallbackContext):
     user_id = update.effective_user.id
     if user_id != ADMIN_USER_ID:
-        await context.bot.send_message(chat_id=update.effective_chat.id, text="*❌ You are not authorized to add users!*", parse_mode='Markdown')
+        await context.bot.send_message(chat_id=update.effective_chat.id, text="*❌ TERE BAAP KA BOT HAI KYA HE RANDI!*", parse_mode='Markdown')
         return
 
     if len(context.args) != 2:
@@ -345,7 +345,7 @@ async def attack(update: Update, context: CallbackContext):
 
     # Check if the user is allowed to use the bot
     if not await is_user_allowed(user_id):
-        await context.bot.send_message(chat_id=chat_id, text="*❌ You are not authorized to use this bot!*", parse_mode='Markdown')
+        await context.bot.send_message(chat_id=chat_id, text="*❌ NIKAL BHOSDIKE PEHLE JAKE KHARID!*", parse_mode='Markdown')
         return
 
     # Check for cooldown
@@ -405,7 +405,7 @@ async def attack(update: Update, context: CallbackContext):
 
     # Send attack details to the user
     await context.bot.send_message(chat_id=chat_id, text=( 
-        f"*⚔️ Attack Launched! ⚔️*\n"
+        f"*⚔️ JAKE DEKHIYE BGMI KI MA CHUD CHUKI HAI! ⚔️*\n"
         f"*🎯 Target: {ip}:{port}*\n"
         f"*🕒 Duration: {duration} seconds*\n"
         f"*🔥 Let the battlefield ignite! 💥*"
